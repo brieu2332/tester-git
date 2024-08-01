@@ -1,42 +1,34 @@
-import json
+from datetime import date 
+import json# importa json para persistir o dado em json
 
-class MyClass:
-    def __init__(self, name, value, cpf):
+# class definition ---------------------
+class Person:
+    def __init__(self, name, year_born, cpf):
         self.name = name
-        self.value = value
+        self.year_born = year_born
         self.cpf = cpf
 
-    def to_dict(self):
-        return {'name': self.name, 'value': self.value, 'cpf':self.cpf}
+    def __str__(self):
+        return f'''{self.name}, born in {self.year_born} (age: {date.today().year-self.year_born}), 
+CPF: {self.cpf}'''
+    
+    def toDict(self):
+        return {'name': self.name, 'year_born': self.year_born, 'cpf': self.cpf}#passa quais informações serao salvas
+    
+   
+# main program -------------------------
 
-    @classmethod
-    def from_dict(cls, data):
-        return cls(data['name'], data['value'], data['cpf'])
+# ask data
+name = input('Please, give your name: ')
+year_born = int(input('Give your borning year: '))
+cpf = input('Give your CPF: ')
 
-# Criando uma instância da classe
-obj = MyClass('example', 42, 123)
+# create the object
+someone = Person(name, year_born, cpf)
 
-# Salvando o objeto em um arquivo JSON
-with open('myclass.json', 'w') as f:
-    json.dump(obj.to_dict(), f)
-from datetime import date #para saber a data atual
+#pega as informações do objeto e salva num arquivo json
+with open('Person.json', 'w') as f:
+    json.dump(someone.toDict(), f)
 
-#voce esta na branch master
-
-
-#variaveis
-anoAtual = date.today().year #coloca o ano atual dentro da vari ano
-nome = ""
-anoDeNascimento = 0
-calculoIdade = 0
-
-#entrada
-nome = input('diga seu nome:')
-anoDeNascimento = int(input('coloque sua data de nascimento:'))
-
-# Carregando o objeto do arquivo JSON
-with open('myclass.json', 'r') as f:
-    data = json.load(f)
-    loaded_obj = MyClass.from_dict(data)
-
-print(loaded_obj.name, loaded_obj.value, loaded_obj.cpf)
+# show the data
+print(someone)

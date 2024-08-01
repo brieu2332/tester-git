@@ -19,6 +19,20 @@ obj = MyClass('example', 42, 123)
 # Salvando o objeto em um arquivo JSON
 with open('myclass.json', 'w') as f:
     json.dump(obj.to_dict(), f)
+from datetime import date #para saber a data atual
+
+#voce esta na branch master
+
+
+#variaveis
+anoAtual = date.today().year #coloca o ano atual dentro da vari ano
+nome = ""
+anoDeNascimento = 0
+calculoIdade = 0
+
+#entrada
+nome = input('diga seu nome:')
+anoDeNascimento = int(input('coloque sua data de nascimento:'))
 
 # Carregando o objeto do arquivo JSON
 with open('myclass.json', 'r') as f:

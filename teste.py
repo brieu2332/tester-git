@@ -1,20 +1,34 @@
-from datetime import date #para saber a data atual
+from datetime import date 
+import json# importa json para persistir o dado em json
 
-#voce esta na branch develop
+# class definition ---------------------
+class Person:
+    def __init__(self, name, year_born, cpf):
+        self.name = name
+        self.year_born = year_born
+        self.cpf = cpf
 
+    def __str__(self):
+        return f'''{self.name}, born in {self.year_born} (age: {date.today().year-self.year_born}), 
+CPF: {self.cpf}'''
+    
+    def toDict(self):
+        return {'name': self.name, 'year_born': self.year_born, 'cpf': self.cpf}#passa quais informações serao salvas
+    
+   
+# main program -------------------------
 
-#variaveis
-anoAtual = date.today().year #coloca o ano atual dentro da vari ano
-nome = ""
-anoDeNascimento = 0
-calculoIdade = 0
+# ask data
+name = input('Please, give your name: ')
+year_born = int(input('Give your borning year: '))
+cpf = input('Give your CPF: ')
 
-#entrada
-nome = input('diga seu nome:')
-anoDeNascimento = int(input('coloque sua data de nascimento:'))
+# create the object
+someone = Person(name, year_born, cpf)
 
-#mostra e calcula idade
-calculoIdade = anoAtual - anoDeNascimento
-print(calculoIdade)
+#pega as informações do objeto e salva num arquivo json
+with open('Person.json', 'w') as f:
+    json.dump(someone.toDict(), f)
 
-
+# show the data
+print(someone)

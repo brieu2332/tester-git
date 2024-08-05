@@ -5,11 +5,12 @@ class Person:
         self.name = name
         self.year_born = year_born
         self.cpf = cpf
+        self.age = date.today().year - self.year_born
 
     def __str__(self):
-        return f'''{self.name}, born in {self.year_born} (age: {date.today().year-self.year_born}),CPF: {self.cpf}'''
+        return f'''{self.name}, born in {self.year_born} (age: {self.age}),CPF: {self.cpf}'''
     
-    def toDict(self):
-        return {'name': self.name, 'year_born': self.year_born, 'cpf': self.cpf}#passa quais informações serao salvas
+    def to_dict(self):
+        return {'name': self.name, 'year_born': self.year_born, 'cpf': self.cpf, 'age': self.age}#passa quais informações serao salvas
     
  

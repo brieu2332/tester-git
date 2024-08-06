@@ -1,32 +1,38 @@
 [
     {
-        "name": "gabriel",
-        "year_born": 19,
+        "age": 24,
+        "cpf": "06916689730",
+        "name": "John Stick",
+        "year_born": 2000
+    },
+    {
+        "age": 2005,
         "cpf": "320498",
-        "age": 2005
+        "name": "gabriel",
+        "year_born": 19
     },
     {
-        "name": "teste final",
-        "year_born": 40,
+        "age": 1984,
         "cpf": "3248907",
-        "age": 1984
+        "name": "teste final",
+        "year_born": 40
     },
     {
-        "name": "teste2",
-        "year_born": 134,
+        "age": 1890,
         "cpf": "1340193",
-        "age": 1890
+        "name": "teste2",
+        "year_born": 134
     },
     {
-        "name": "hsdgfv",
-        "year_born": 9834,
+        "age": -7810,
         "cpf": "28374",
-        "age": -7810
+        "name": "hsdgfv",
+        "year_born": 9834
     },
     {
-        "name": "teste3",
-        "year_born": 32,
+        "age": 1992,
         "cpf": "3124",
-        "age": 1992
+        "name": "teste3",
+        "year_born": 32
     }
 ]

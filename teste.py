@@ -14,7 +14,7 @@ someone = Person(name, year_born, cpf)
 
 someone_data = someone.to_dict()
 
-# Read the existing data from the JSON file
+# le o json e cria uma lista para salvar as infos
 try:
     with open('Person.json', 'r') as f:
         data = json.load(f)
@@ -23,7 +23,7 @@ try:
 except FileNotFoundError:
     data = []
 
-# Append the new data
+# insere em cima no json
 data.insert(0, someone_data)
 
 #pega as informações do objeto e salva num arquivo json
